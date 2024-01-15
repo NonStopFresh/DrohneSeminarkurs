@@ -37,7 +37,9 @@ void accReadings(){
     Serial.print(gradY);
     Serial.print("  acceleroX  ");
     Serial.println(gradX);
+    Motorcontroller(gradX, gradY);
   }
+  
 }
 
 void accelerometerKalkulieren(float ProcessAccX, float ProcessAccY ){

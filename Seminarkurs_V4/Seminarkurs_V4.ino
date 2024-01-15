@@ -33,10 +33,27 @@ int interruptPin = 2;
 int LIM=100;
 volatile bool accEvent = false;
 float GyroXOfset, GyroYOfset,  GyroZOfset;
+#include <Servo.h>
 
 float GyroreadingsinGradX2=0;
 bool Done;
+
+#define MotorX1p 4
+#define MotorX2p 5
+#define MotorY1p 6
+#define MotorY2p 7
+
+Servo MotorX1;
+Servo MotorX2;
+Servo MotorY1;
+Servo MotorY2;
+
 void setup() {
+  MotorX1.attach(MotorX1p);
+  MotorX2.attach(MotorX2p);
+  MotorY1.attach(MotorY1p);
+  MotorY2.attach(MotorY2p);
+
   pinMode(ledRot, OUTPUT);
   pinMode(ledBlau, OUTPUT);
 

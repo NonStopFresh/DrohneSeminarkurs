@@ -32,6 +32,7 @@ int gyroReadings(){
   digitalWrite(ledBlau, HIGH);
   }else{
     Done=true;
+  
    ProcessGyroX=GyroX/GYROData;
    ProcessGyroY=GyroY/GYROData;
     
@@ -42,7 +43,7 @@ int gyroReadings(){
     Serial.print("    gyroX    ");
     Serial.print(ProcessGyroX);
     Serial.print("    gyroY    ");
-    Serial.print m(ProcessGyroY);
+    Serial.print(ProcessGyroY);
     
     
     
