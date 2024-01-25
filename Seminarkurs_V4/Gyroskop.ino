@@ -40,10 +40,11 @@ int gyroReadings(){
     digitalWrite(ledRot, HIGH);
     //gyroXGes=gyroXGes+(ProcessGyroX-DriftX);
     //gyroYGes=gyroYGes+(ProcessGyroY-DriftY);
-    Serial.print("    gyroX    ");
-    Serial.print(ProcessGyroX);
-    Serial.print("    gyroY    ");
-    Serial.print(ProcessGyroY);
+
+   //Serial.print("    gyroX    ");
+   //Serial.print(ProcessGyroX);
+   //Serial.print("    gyroY    ");
+   //Serial.print(ProcessGyroY);
     
     
     
@@ -97,10 +98,12 @@ void drift(double gyroXges, double gyroYges){
       DriftYges=0;
       DriftXges=0;
     }
-    Serial.print("DriftY    ");
-    Serial.println(DriftY);
-    Serial.print("DriftX    ");
-    Serial.println(DriftX);
+
+    //Serial.print("DriftY    ");
+    //Serial.println(DriftY);
+    //Serial.print("DriftX    ");
+    //Serial.println(DriftX);
+
     DriftY=gyroYGes-Y2;
     DriftX=gyroXGes-X2;
     

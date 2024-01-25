@@ -42,6 +42,8 @@ bool Done;
 #define MotorX2p 5
 #define MotorY1p 6
 #define MotorY2p 7
+#define inputPot 8
+#define inputBut 9
 
 Servo MotorX1;
 Servo MotorX2;
@@ -53,7 +55,8 @@ void setup() {
   MotorX2.attach(MotorX2p);
   MotorY1.attach(MotorY1p);
   MotorY2.attach(MotorY2p);
-
+  pinMode(inputPot, INPUT);
+  pinMode(inputBut,INPUT);
   pinMode(ledRot, OUTPUT);
   pinMode(ledBlau, OUTPUT);
 
@@ -70,9 +73,11 @@ void setup() {
 
 void loop(){
   delay(100);
+
   startTime = millis();
   if(Done){
   accReadings();
+  Userkalibrierung();
   }
   gyroReadings();
 

@@ -1,4 +1,4 @@
-float X0Acceleromin, X90Acceleromax, gradX, gradY, Y0Acceleromin, Y90Acceleromax;
+float X0Acceleromin, X90Acceleromax, gradX, gradY, Y0Acceleromin, Y90Acceleromax, AcceleroZ;
 int mehrmal = 0;
 void accReadings(){
   Wire.beginTransmission(MPU);
@@ -24,6 +24,7 @@ void accReadings(){
     mehrmal++;
     Serial.println(mehrmal);
     accelerometerKalkulieren(ProcessAccX, ProcessAccY);
+    AcceleroZ=ProcessAccZ;
   }
   else{
    
