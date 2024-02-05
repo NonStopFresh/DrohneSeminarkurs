@@ -6,7 +6,7 @@ short btnState = 0;
 //Y90Acceleromax*100
 void Userkalibrierung(){
   digitalRead(inputBut);
-  analogRead(inputPot);
+  analogRead(potKalUsr);
   Serial.println(digitalRead(inputBut));
   if(digitalRead(inputBut)!=btnState){
   if (digitalRead(inputBut)==HIGH){
@@ -20,19 +20,19 @@ void Userkalibrierung(){
       }
     switch(buttonVar){
       case 1:
-        X0Acceleromin = X0Acceleromin +  analogRead(inputPot)/100;
+        X0Acceleromin = X0Acceleromin +  analogRead(potKalUsr)/100;
         break;
       case 2:
-        X90Acceleromax = X90Acceleromax +  analogRead(inputPot)/100;
+        X90Acceleromax = X90Acceleromax +  analogRead(potKalUsr)/100;
         break;
       case 3:
-        Y0Acceleromin = Y0Acceleromin +  analogRead(inputPot)/100;
+        Y0Acceleromin = Y0Acceleromin +  analogRead(potKalUsr)/100;
         break;
       case 4:
-        Y90Acceleromax = Y90Acceleromax +  analogRead(inputPot)/100;
+        Y90Acceleromax = Y90Acceleromax +  analogRead(potKalUsr)/100;
         break;
     }
     }
   }
-    btnState=digitalRead(inputBut);
+    btnState=digitalRead(potKalUsr);
 }
