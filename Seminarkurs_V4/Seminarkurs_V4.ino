@@ -45,8 +45,8 @@ bool Done;
 #define MotorX2 5
 #define MotorY1 6
 #define MotorY2 7
-#define pot 8
-#define potKalUsr 8
+#define pot A8
+#define potKalUsr A9
 #define inputBut 9
 
 void setup() {
