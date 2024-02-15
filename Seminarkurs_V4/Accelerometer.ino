@@ -32,8 +32,8 @@ void accReadings(){
     //exit(0);
     //}
     digitalWrite(ledBlau, HIGH);
-    gradX=map(ProcessAccX*100, (X0Acceleromin*100)-5,(X90Acceleromax*100)-5,-90,90);
-    gradY=map(ProcessAccY*100, (Y0Acceleromin*100)-5,(Y90Acceleromax*100)-5,-90,90);
+    gradX=map(ProcessAccX*100, (X0Acceleromin*100)-5,(X90Acceleromax*100)-5,-90,90);//gradX=map(ProcessAccX*100, (X0Acceleromin*100)-5,(X90Acceleromax*100)-5,-90,90);
+    gradY=map(ProcessAccY*100, (Y0Acceleromin*100)-5,(Y90Acceleromax*100)-5,-90,90);//gradY=map(ProcessAccY*100, (Y0Acceleromin*100)-5,(Y90Acceleromax*100)-5,-90,90);
     Serial.print("  acceleroY  ");
     Serial.print(gradY);
     Serial.print("  acceleroX  ");

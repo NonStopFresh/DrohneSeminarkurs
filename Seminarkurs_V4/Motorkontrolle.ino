@@ -1,29 +1,41 @@
-int MotorControl1=0; 
+int MotorControlX1=0; 
+int MotorControlX2=0; 
+int MotorControlY1=0; 
+int MotorControlY2=0; 
 int generalThrot;
 void Motorcontroller(float gradX, float gradY){
   analogRead(pot);
   Serial.print("analogRead(pot)");
   Serial.print(analogRead(pot));
   generalThrot = map(analogRead(pot), 0, 1023, 100,250);
-  analogWrite(MotorX1,generalThrot );
+  analogWrite(MotorX1,generalThrot);
+  analogWrite(MotorX2,generalThrot);
+  analogWrite(MotorY1,generalThrot);
+  analogWrite(MotorY2,generalThrot);
   
   if(gradX>0){
     Serial.print("MotorControl1 ");
-    Serial.println(MotorControl1);
-    MotorControl1=MotorControl1+1;
-    delay(100);
+    Serial.println(MotorControlX1);
+    MotorControlX1=MotorControlX1+1;
+    MotorControlX2=MotorControlX2-1;
+    
    
 
   }
   else if(gradX<0){
-    MotorControl1=MotorControl1-1;
+    MotorControlX2=MotorControlX2+1;
+    MotorControlX1=MotorControlX1-1;
     
-  }
-  else if(gradY<0){
-
   }
   else if(gradY>0){
+    MotorControlY1=MotorControlY1+1;
+    MotorControlY2=MotorControlY2-1;
+  }else if(gradY<0){
+    MotorControlY1=MotorControlY1-1;
+    MotorControlY2=MotorControlY2+1;
     
+  }else{
+    Serial.println("geracde");
   }
   
 }
