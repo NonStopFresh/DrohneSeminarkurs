@@ -13,8 +13,7 @@
 #define MPU6050_MOT_DUR           0x20 // Motion Detection Duration Register
 #define MPU6050_ACCEL_INTEL_CTRL  0x69 // Accelaration Interrupt Control Register
 #define MPU6050_SIGNAL_PATH_RESET 0x68 // Signal Path Reset Register
-int ledRot=2;
-int ledBlau=3;
+
 unsigned long startTime;
 unsigned long endTime;
 unsigned long elapsedTime;
@@ -29,7 +28,7 @@ float OffsetGyroXinsg,OffsetGyroYinsg,OffsetGyroZinsg;
 int gyroZaehler=0;
 int ACCData,C,GYROData;
 int accregisterconf;
-int interruptPin = 2;
+
 int LIM=100;
 volatile bool accEvent = false;
 float GyroXOfset, GyroYOfset,  GyroZOfset;
