@@ -40,6 +40,7 @@ bool Done;
 
 #define ledRot 2
 #define ledBlau 3
+
 #define MotorX1 4
 #define MotorX2 5
 #define MotorY1 6
@@ -54,6 +55,7 @@ void setup() {
   pinMode(MotorX2, OUTPUT);
   pinMode(MotorY1, OUTPUT);
   pinMode(MotorY2, OUTPUT);
+  pinMode(pot, INPUT);
   pinMode(potKalUsr, INPUT);
   pinMode(inputBut,INPUT);
   pinMode(ledRot, OUTPUT);

@@ -19,7 +19,7 @@ void accReadings(){
   //Serial.print("|| GES"); Serial.println(abs(ProcessAccZ) + abs(ProcessAccY)+abs(ProcessAccX));
 
   
-  if(mehrmal < 400 ){
+  if(mehrmal < 100 ){
     digitalWrite(ledBlau, LOW);
     mehrmal++;
     Serial.println(mehrmal);
