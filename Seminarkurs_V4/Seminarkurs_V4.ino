@@ -38,15 +38,15 @@ float GyroreadingsinGradX2=0;
 bool Done;
 
 
-#define ledRot 2
-#define ledBlau 3
+#define ledRot 12
+#define ledBlau 11 
 
-#define MotorX1 4
-#define MotorX2 5
-#define MotorY1 6
-#define MotorY2 7
-#define pot A8
-#define potKalUsr A9
+#define MotorX1 3
+#define MotorX2 4
+#define MotorY1 5
+#define MotorY2 6
+#define pot A3//A8
+#define potKalUsr A2//A9
 #define inputBut 9
 
 void setup() {
