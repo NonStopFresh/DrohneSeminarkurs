@@ -1,4 +1,4 @@
-
+#include <RCSwitch.h>
 #include "Wire.h" 
 #define MPU          0x68 // Alternatively set AD0 to HIGH  --> Address = 0x69
 #define MPU6050_GYRO_CONFIG       0x1B
@@ -17,8 +17,9 @@
 unsigned long startTime;
 unsigned long endTime;
 unsigned long elapsedTime;
+
 int loopcontrol1=1;
-double AccX,AccY,AccZ,Temp, ProcessAccX, ProcessAccY, ProcessAccZ,ProcessGyroX, ProcessGyroY, ProcessGyroZ,GyroX,GyroY,GyroZ;
+double volatile AccX,AccY,AccZ,Temp, ProcessAccX, ProcessAccY, ProcessAccZ,ProcessGyroX, ProcessGyroY, ProcessGyroZ,GyroX,GyroY,GyroZ;
 //int ProcessGyroX, ProcessGyroY, ProcessGyroZ,GyroX,GyroY,GyroZ;
 float FertigGyroX,FertigGyroX2;
 float TestA,TestB,TestC, GyroreadingsinGradX, GyroreadingsinGradY, GyroreadingsinGradZ ;
@@ -45,10 +46,13 @@ bool Done;
 #define MotorX2 4
 #define MotorY1 5
 #define MotorY2 6
-#define pot A3//A8
-#define potKalUsr A2//A9
-#define inputBut 9
+int pot;
+short potKalUsr;
+//#define pot A3//A8       Extrerne Inputs
+//#define potKalUsr A2//A9
 
+#define inputBut 9
+RCSwitch mySwitch = RCSwitch();
 void setup() {
   
   pinMode(MotorX1, OUTPUT);
@@ -62,7 +66,7 @@ void setup() {
   pinMode(ledBlau, OUTPUT);
   
   
-  
+  mySwitch.enableReceive(0); //daten transmit pin 0
 
   ACCData = 16384;
   GYROData = 256;
@@ -77,7 +81,7 @@ void setup() {
 
 void loop(){
   delay(100);
-
+  receive();
   startTime = millis();
   if(Done){
   accReadings();

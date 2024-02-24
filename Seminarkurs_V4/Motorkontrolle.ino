@@ -6,8 +6,8 @@ int generalThrot;
 void Motorcontroller(float gradX, float gradY){
  
   
-  generalThrot = map(analogRead(pot), 0, 1023, 100,255);
-  Serial.print("generalThrot  ");
+  generalThrot = map(analogRead(pot), 0, 1023, 100,240); //240, da motor durch programm stärkere leistung erreichen soll|| externe inputs
+  Serial.print("generalThrot  ");           
   Serial.println(generalThrot);
   analogWrite(MotorX1,generalThrot);
   analogWrite(MotorX2,generalThrot);
