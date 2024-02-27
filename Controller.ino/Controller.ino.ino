@@ -1,7 +1,7 @@
 #include <RCSwitch.h>
 
 int bLAST = 0;
-
+int poThrot;
 RCSwitch mySwitch = RCSwitch();
 #define potThrottle A0
 void setup() {
@@ -12,9 +12,11 @@ void setup() {
 }
 
 void loop() {
-  
-  
-  mySwitch.send(analogRead(potThrottle), 24);
+  poThrot=map(analogRead(potThrottle),0,1023,0,180);
+  Serial.print(poThrot);
+  Serial.print("    ");
+  Serial.println(analogRead(potThrottle));
+  mySwitch.send(poThrot, 8);
 
   delay(50);
 }

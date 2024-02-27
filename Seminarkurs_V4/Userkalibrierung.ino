@@ -7,7 +7,7 @@ short btnState = 0;
 void Userkalibrierung(){
   digitalRead(inputBut);
   analogRead(potKalUsr);
-  Serial.println(digitalRead(inputBut));
+  //Serial.println(digitalRead(inputBut));
   if(digitalRead(inputBut)!=btnState){
   if (digitalRead(inputBut)==HIGH){
     

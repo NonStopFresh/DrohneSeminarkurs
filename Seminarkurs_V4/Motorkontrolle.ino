@@ -3,16 +3,20 @@ int MotorControlX2=0;
 int MotorControlY1=0; 
 int MotorControlY2=0; 
 int generalThrot;
+
 void Motorcontroller(float gradX, float gradY){
  
   
-  generalThrot = map(analogRead(pot), 0, 1023, 100,240); //240, da motor durch programm stärkere leistung erreichen soll|| externe inputs
+   //240, da motor durch programm stärkere leistung erreichen soll|| externe inputs
   Serial.print("generalThrot  ");           
-  Serial.println(generalThrot);
-  analogWrite(MotorX1,generalThrot);
-  analogWrite(MotorX2,generalThrot);
-  analogWrite(MotorY1,generalThrot);
-  analogWrite(MotorY2,generalThrot);
+  Serial.println(ThrotVal);
+  
+ 
+  
+  motor1.write(ThrotVal);
+  motor2.write(ThrotVal);
+  motor3.write(ThrotVal);
+  motor4.write(ThrotVal);
   /*
   if(gradX>0){
     Serial.print("MotorControl1 ");

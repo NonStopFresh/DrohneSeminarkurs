@@ -1,5 +1,6 @@
 #include <RCSwitch.h>
 #include "Wire.h" 
+#include <Servo.h>
 #define MPU          0x68 // Alternatively set AD0 to HIGH  --> Address = 0x69
 #define MPU6050_GYRO_CONFIG       0x1B
 #define MPU6050_ACCEL_CONFIG      0x1C // Accelerometer Configuration Register
@@ -29,7 +30,7 @@ float OffsetGyroXinsg,OffsetGyroYinsg,OffsetGyroZinsg;
 int gyroZaehler=0;
 int ACCData,C,GYROData;
 int accregisterconf;
-
+int ThrotVal;
 int LIM=100;
 volatile bool accEvent = false;
 float GyroXOfset, GyroYOfset,  GyroZOfset;
@@ -50,15 +51,19 @@ int pot;
 short potKalUsr;
 //#define pot A3//A8       Extrerne Inputs
 //#define potKalUsr A2//A9
-
+Servo motor1;
+Servo motor2;
+Servo motor3;
+Servo motor4;
 #define inputBut 9
 RCSwitch mySwitch = RCSwitch();
 void setup() {
-  
-  pinMode(MotorX1, OUTPUT);
-  pinMode(MotorX2, OUTPUT);
-  pinMode(MotorY1, OUTPUT);
-  pinMode(MotorY2, OUTPUT);
+  motor1.attach(MotorX1, 900,2100);
+  motor2.attach(MotorX2, 900,2100);
+  motor3.attach(MotorY1, 900,2100);
+  motor4.attach(MotorY2, 900,2100);
+ 
+ 
   pinMode(pot, INPUT);
   pinMode(potKalUsr, INPUT);
   pinMode(inputBut,INPUT);

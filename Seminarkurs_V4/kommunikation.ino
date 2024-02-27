@@ -3,20 +3,17 @@ void receive() {
 
   if (mySwitch.available()) {
     
-    int value = mySwitch.getReceivedValue();
+    ThrotVal = mySwitch.getReceivedValue();
     
     
       Serial.print("Received ");
-      Serial.print( value );
-  	  
-      Serial.print(" / ");
-      Serial.print( mySwitch.getReceivedBitlength() );
-      Serial.println("bit ");
-      
-      value=map(value,0,1025,255,0);
-      analogWrite(12,value);
-    
+      Serial.print(ThrotVal);
 
     mySwitch.resetAvailable();
-  }
+  }else{
+    motor1.write(0);
+  motor2.write(0);
+  motor3.write(0);
+  motor4.write(0);
+}
 }
