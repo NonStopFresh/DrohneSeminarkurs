@@ -6,7 +6,7 @@ int offsetcount;
 int upprbound=100;
 int lowrbound=10;
 int extratrim=3;
-int ff;
+int ff; 
 bool allesneu = false;
 float Ygyromax, Ygyromin,Xgyromax, Xgyromin, gradGyroY, gradGyroX;
 int gyroReadings(){

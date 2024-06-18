@@ -19,7 +19,8 @@ void accReadings(){
   //Serial.print("|| GES"); Serial.println(abs(ProcessAccZ) + abs(ProcessAccY)+abs(ProcessAccX));
 
   
-  if(mehrmal < 20 ){///kalibrierungszeitr
+  if(mehrmal < 50 ){///kalibrierungszeitr
+  Motorcontroller(0, 0);
     digitalWrite(ledBlau, LOW);
     mehrmal++;
     Serial.println(mehrmal);
@@ -32,8 +33,9 @@ void accReadings(){
     //exit(0);
     //}
     digitalWrite(ledBlau, HIGH);
-    gradX=map(ProcessAccX*100, (X0Acceleromin*100)-5,(X90Acceleromax*100)-5,-90,90);//gradX=map(ProcessAccX*100, (X0Acceleromin*100)-5,(X90Acceleromax*100)-5,-90,90);
-    gradY=map(ProcessAccY*100, (Y0Acceleromin*100)-5,(Y90Acceleromax*100)-5,-90,90);//gradY=map(ProcessAccY*100, (Y0Acceleromin*100)-5,(Y90Acceleromax*100)-5,-90,90);
+    gradX=map(ProcessAccX*100, -100,100,-90,90);//gradX=map(ProcessAccX*100, (X0Acceleromin*100)-5,(X90Acceleromax*100)-5,-90,90);
+    gradY=map(ProcessAccY*100, -100,100,-90,90);//gradY=map(ProcessAccY*100, (Y0Acceleromin*100)-5,(Y90Acceleromax*100)-5,-90,90);
+    
     Serial.print("  acceleroY  ");
     Serial.print(gradY);
     Serial.print("  acceleroX  ");

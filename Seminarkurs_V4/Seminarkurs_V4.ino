@@ -58,10 +58,7 @@ Servo motor4;
 #define inputBut 9
 RCSwitch mySwitch = RCSwitch();
 void setup() {
-  motor1.attach(MotorX1, 900,2100);
-  motor2.attach(MotorX2, 900,2100);
-  motor3.attach(MotorY1, 900,2100);
-  motor4.attach(MotorY2, 900,2100);
+  
  
  
   pinMode(pot, INPUT);
@@ -81,6 +78,14 @@ void setup() {
   gyroConfig();
   Wire.begin();
   //pinmodes
+  motor1.attach(MotorX1, 900,2100);
+  motor2.attach(MotorX2, 900,2100);
+  motor3.attach(MotorY1, 900,2100);
+  motor4.attach(MotorY2, 900,2100);
+  motor1.write(0);
+  motor2.write(0);
+  motor3.write(0);
+  motor4.write(0);
   }
 
 
